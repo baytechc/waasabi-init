@@ -7,6 +7,8 @@ export function setenv(key, value) {
 }
 
 export function expand(text) {
+  if (typeof text != 'string') return text
+
   return text.replace(/(?<!\$)\$\w+/g, (k) => {
     const key = k.substr(1)
     const val = ENV[key]
