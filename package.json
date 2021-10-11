@@ -1,0 +1,25 @@
+{
+  "name": "waasabi-init",
+  "version": "0.2.0",
+  "description": "Deploy script for new Waasabi instances",
+  "main": "init.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/baytechc/waasabi-init.git"
+  },
+  "keywords": [
+    "waasabi"
+  ],
+  "author": "Flaki <git@flaki.hu>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/baytechc/waasabi-init/issues"
+  },
+  "homepage": "https://github.com/baytechc/waasabi-init#readme"
+}
