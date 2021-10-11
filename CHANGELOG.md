@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/baytechc/waasabi-init/compare/v0.2.0...v0.2.1) (2021-10-11)
+
+
+### Bug Fixes
+
+* Correct crashing uid/gid masquerading bug ([35ffe0e](https://github.com/baytechc/waasabi-init/commit/35ffe0e66cc927000c23ef561b908f096ff0809d))
+
 ## 0.2.0 (2021-10-11)
 
 Complete revamp of the installer runtime.
