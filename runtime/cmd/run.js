@@ -23,8 +23,8 @@ export default async function cmdRun(cmd, context = {}) {
   }
 
   // Execute @as user/group
-  if (context.uid) commandOpts.uid = parseInt(uid, 10)
-  if (context.gid) commandOpts.gid = parseInt(gid, 10)
+  if (context.uid) commandOpts.uid = parseInt(context.uid, 10)
+  if (context.gid) commandOpts.gid = parseInt(context.gid, 10)
 
   // Inbound pipe
   if (context.pipe) {
