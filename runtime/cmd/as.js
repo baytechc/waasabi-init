@@ -1,31 +1,34 @@
 import dispatch from '../dispatch.js'
-import { cmdarg, u8str } from '../util.js'
+import { cmdarg } from '../util.js'
 
 export default async function cmdAs(cmd, rest, context = {}) {
   const username = cmdarg(cmd)
 
-  cmd = ['id',username]
+  // Find out the user details the old-fashioned way
+  const id = Deno.readTextFileSync('/etc/passwd')
+    .split('\n')
+    .find(
+      r => r.startsWith(username)
+    )?.match(new RegExp(
+      username+`:[^:]*:(?<uid>[^:]+):(?<gid>[^:]+):[^:]*:(?<home>[^:]+)`
+    ))?.groups ?? {}
 
-  // Use the current user instead on dry runs
-  if ($isDryRun()) {
-    cmd = ['id']
+    console.log(id)
+
+  context.uid = parseInt(id.uid, 10)
+  context.gid = parseInt(id.gid, 10)
+  context.env = {
+    USER: username,
+    LOGNAME: username,
   }
-
-  // Get the numeric system uid/gid for the user
-  const res = await Deno.run({ cmd, stdout: 'piped' }).output()
-  const ids = Object.fromEntries(
-    u8str(res).match(/[ug]id=\d+/g)?.map(m => m.split('=') ?? [])
-  )
-
-  context.uid = parseInt(ids.uid, 10)
-  context.gid = parseInt(ids.gid, 10)
+  context.env.HOME = id.home ?? '/home/'+username
    
   if (isNaN(context.uid) || isNaN(context.gid)) {
     console.log(`Warning: ${username} does not exist or invaccessible.`)
     return
   }
 
-  $debug(`Execute as ${username}(${context.uid}:${context.gid})`)
+  $debug(`Execute as ${username}(${context.uid}:${context.gid}:${context.env?.HOME})`)
 
   if (rest?.length) {
     return await dispatch(rest, context)
