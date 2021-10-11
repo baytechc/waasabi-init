@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/baytechc/waasabi-init/compare/v0.2.2...v0.2.3) (2021-10-11)
+
+
+### Bug Fixes
+
+* Correctly handle primary group id in [@as](https://github.com/as) ([07ef118](https://github.com/baytechc/waasabi-init/commit/07ef1181a1987676a8f535a295a56b2bb57652bf))
+
 ### [0.2.2](https://github.com/baytechc/waasabi-init/compare/v0.2.1...v0.2.2) (2021-10-11)
 
 
