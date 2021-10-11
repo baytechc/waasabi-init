@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/baytechc/waasabi-init/compare/v0.2.1...v0.2.2) (2021-10-11)
+
+
+### Bug Fixes
+
+* Ensure ENV-expansion doesn't crash on non-strings ([cd98816](https://github.com/baytechc/waasabi-init/commit/cd98816c845c5d2234d55a20da0b6d5d30d669c2))
+
 ### [0.2.1](https://github.com/baytechc/waasabi-init/compare/v0.2.0...v0.2.1) (2021-10-11)
 
 
