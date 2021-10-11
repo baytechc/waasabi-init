@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/baytechc/waasabi-init/compare/v0.2.3...v0.2.4) (2021-10-11)
+
+
+### Bug Fixes
+
+* Missing contexts in dispatcher ([2300cb5](https://github.com/baytechc/waasabi-init/commit/2300cb5ef9447e3894710106a8c4c21d29543f2c))
+
 ### [0.2.3](https://github.com/baytechc/waasabi-init/compare/v0.2.2...v0.2.3) (2021-10-11)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "waasabi-init",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Deploy script for new Waasabi instances",
   "main": "init.js",
   "directories": {
