@@ -4,25 +4,28 @@ import { cmdarg, u8str } from '../util.js'
 export default async function cmdAs(cmd, rest, context = {}) {
   const username = cmdarg(cmd)
 
-  cmd = ['id','-u',username]
+  cmd = ['id',username]
 
   // Use the current user instead on dry runs
   if ($isDryRun()) {
-    cmd = ['id','-u']
+    cmd = ['id']
   }
 
-  // Get the numeric system id for the user
+  // Get the numeric system uid/gid for the user
   const res = await Deno.run({ cmd, stdout: 'piped' }).output()
-  const uid = parseInt(u8str(res), 10)
+  const ids = Object.fromEntries(
+    u8str(res).match(/[ug]id=\d+/g)?.map(m => m.split('=') ?? [])
+  )
 
-  if (isNaN(uid)) {
-    console.log(`Warning: ${username} not found on this system.`)
+  context.uid = parseInt(ids.uid, 10)
+  context.gid = parseInt(ids.gid, 10)
+   
+  if (isNaN(context.uid) || isNaN(context.gid)) {
+    console.log(`Warning: ${username} does not exist or invaccessible.`)
     return
   }
 
-  context.uid = uid
-  context.gid = uid //TODO:?
-  $debug(`Execute as ${username}(${uid})`)
+  $debug(`Execute as ${username}(${context.uid}:${context.gid})`)
 
   if (rest?.length) {
     return await dispatch(rest, context)
