@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.5](https://github.com/baytechc/waasabi-init/compare/v0.2.4...v0.2.5) (2021-10-11)
+
+
+### Bug Fixes
+
+* Correctly set the user ENV vars when using [@as](https://github.com/as) ([fa37f53](https://github.com/baytechc/waasabi-init/commit/fa37f534ebca9680a1e39c2700e92758c318a83b))
+
 ### [0.2.4](https://github.com/baytechc/waasabi-init/compare/v0.2.3...v0.2.4) (2021-10-11)
 
 
