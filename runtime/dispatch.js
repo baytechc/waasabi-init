@@ -29,13 +29,13 @@ export default async function dispatch(run, context) {
     return await cmdSetenv(cmd, rest, context)
   }
   if (cmd.startsWith('@grepfile:')) {
-    return await cmdGrepfile(cmd, rest)
+    return await cmdGrepfile(cmd, rest, context)
   }
   if (cmd.startsWith('@http:')) {
-    return await cmdHttp(cmd, rest)
+    return await cmdHttp(cmd, rest, context)
   }
   if (cmd.startsWith('@https:')) {
-    return await cmdHttps(cmd, rest)
+    return await cmdHttps(cmd, rest, context)
   }
   if (cmd.startsWith('@json')) {
     return await cmdJson(cmd, rest, context)
@@ -73,5 +73,5 @@ export default async function dispatch(run, context) {
     return
   }
 
-  return await cmdRun(run)
+  return await cmdRun(run, context)
 }
